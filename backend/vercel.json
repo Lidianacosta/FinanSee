@@ -2,8 +2,22 @@
     "version": 2,
     "builds": [
         {
-            "src": "Dockerfile",
-            "use": "@vercel/docker"
+            "src": "config/wsgi.py",
+            "use": "@vercel/python",
+            "config": {
+                "maxLambdaSize": "15mb",
+                "runtime": "Python3.9",
+                "systemPackages": [
+                    "libpq-dev"
+                ]
+            }
+        },
+        {
+            "src": "build_files.sh",
+            "use": "@vercel/static-build",
+            "config": {
+                "distDir": "staticfiles"
+            }
         }
     ],
     "routes": [
@@ -13,7 +27,7 @@
         },
         {
             "src": "/(.*)",
-            "dest": "core/config/wsgi.py"
+            "dest": "config/wsgi.py"
         }
     ]
 }
