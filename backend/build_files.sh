@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+sudo apt-get update
+sudo apt-get install -y libpq-dev python3-dev
+
+
 echo "Instalando as dependências..."
 pip3 install -r requirements/production.txt
 
