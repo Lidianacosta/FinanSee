@@ -1,5 +1,6 @@
 -r base.txt
 
 gunicorn==23.0.0
-psycopg[c]==3.2.1 # psycopg2-binary==2.9.10 em desenvolvimento
+# psycopg[c]==3.2.1 # psycopg2-binary==2.9.10 em desenvolvimento
+psycopg2-binary==2.9.10
 Collectfasta==3.2.0
