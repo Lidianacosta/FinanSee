@@ -3,6 +3,7 @@ from datetime import timedelta
 from pathlib import Path
 
 from decouple import config
+import dj_database_url
 
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
@@ -96,14 +97,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 if config('USE_POSTGRESQL', cast=bool, default=False):
     DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql_psycopg2',
-            'NAME': config('DB_NAME'),
-            'USER': config('DB_USER'),
-            'PASSWORD': config('DB_PASSWORD'),
-            'HOST': config('DB_HOST'),
-            'PORT': config('DB_PORT'),
-        }
+        'default': dj_database_url.config(
+            default=config('DATABASE_URL')
+        )
     }
 else:
     DATABASES = {
