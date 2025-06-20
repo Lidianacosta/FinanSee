@@ -8,7 +8,9 @@
                 "maxLambdaSize": "15mb",
                 "runtime": "Python3.9",
                 "systemPackages": [
-                    "libpq-dev"
+                    "libpq-dev",
+                    "sqlite3",
+                    "libsqlite3-dev"
                 ]
             }
         },
