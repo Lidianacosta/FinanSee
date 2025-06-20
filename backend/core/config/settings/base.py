@@ -6,7 +6,7 @@ from decouple import config
 import dj_database_url
 
 
-BASE_DIR = Path(__file__).resolve().parent.parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent.parent.parent
 
 CORS_ALLOWED_ORIGINS = config('CORS_ALLOWED_ORIGINS')
 
